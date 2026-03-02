@@ -1,65 +1,200 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function CheckoutPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="checkout-wrapper">
+
+      {/* ================= HEADER ================= */}
+      <div className="checkout-header">
+
+        <div className="header-top">
+          <span className="back">← Go Back</span>
+          <h1 className="logo">2019</h1>
+          <div className="menu">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        {/* STEP BAR */}
+        <div className="steps">
+
+          <div className="step active">
+            <span className="circle filled">✓</span>
+            Personal details
+          </div>
+
+          <div className="step">
+            <span className="circle">2</span>
+            Order details
+          </div>
+
+          <div className="step">
+            <span className="circle">3</span>
+            Payment
+          </div>
+
+          <div className="step">
+            <span className="circle">4</span>
+            Confirmation
+          </div>
+
+          <span className="prev">← Previous step</span>
+
+        </div>
+      </div>
+
+      {/* ================= MAIN CONTENT ================= */}
+      <div className="checkout-content">
+
+        {/* -------- ORDER CARD -------- */}
+        <div className="order-card">
+
+          <div className="order-header">
+            <h2>Order items</h2>
+            <span className="edit">✏ Edit shopping cart</span>
+          </div>
+
+          {/* ITEM 1 */}
+          <div className="item">
+            <div className="item-info">
+              <img
+                src="https://images.unsplash.com/photo-1585386959984-a41552262d8b"
+                alt="Phone case"
+              />
+              <div>
+                <h3>Silicone Case for iPhone 7</h3>
+                <p>Product color: Midnight Blue</p>
+                <p>Quantity: 2 items</p>
+              </div>
+            </div>
+            <div className="price">
+              <strong>€ 36.40</strong>
+              <span>€ 18.20 per item</span>
+            </div>
+          </div>
+
+          {/* ITEM 2 */}
+          <div className="item">
+            <div className="item-info">
+              <img
+                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+                alt="Tempered glass"
+              />
+              <div>
+                <h3>Tempered glass for iPhone</h3>
+                <p>Size: iPhone 7, iPhone 8</p>
+                <p>Quantity: 4 items</p>
+              </div>
+            </div>
+            <div className="price">
+              <strong>€ 20.00</strong>
+              <span>€ 5.00 per item</span>
+            </div>
+          </div>
+
+          {/* ITEM 3 */}
+          <div className="item">
+            <div className="item-info">
+              <img
+                src="https://images.unsplash.com/photo-1580910051074-3eb694886505"
+                alt="Tempered glass"
+              />
+              <div>
+                <h3>Tempered glass for iPhone</h3>
+                <p>Size: iPhone 7, iPhone 8</p>
+                <p>Quantity: 4 items</p>
+              </div>
+            </div>
+            <div className="price">
+              <strong>€ 20.00</strong>
+              <span>€ 5.00 per item</span>
+            </div>
+          </div>
+
+          {/* DISCOUNT BOX */}
+          <div className="discount-box">
+            Have discount code? Click to enter it.
+          </div>
+
+        </div>
+
+        {/* -------- SUMMARY CARD -------- */}
+        <div className="summary-card">
+
+          <h2>Summary</h2>
+
+          <p className="summary-text">
+            The total cost consist of the tax, insurance and the delivery charge.
           </p>
+
+          <div className="summary-row">
+            <span>Subtotal</span>
+            <strong>€ 56.40</strong>
+          </div>
+
+          <div className="summary-row">
+            <span>Delivery</span>
+            <strong>FREE</strong>
+          </div>
+
+          <div className="summary-row">
+            <span>Tax</span>
+            <strong>€ 11.84</strong>
+          </div>
+
+          <div className="summary-row">
+            <span>Insurance</span>
+            <strong>€ 7.00</strong>
+          </div>
+
+          <hr />
+
+          <div className="summary-total">
+            <span>TOTAL:</span>
+            <strong>€ 75.24</strong>
+          </div>
+
+          <button className="next-btn">Next step</button>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </div>
+
+      {/* ================= DIVIDER ================= */}
+      <div className="divider"></div>
+
+      {/* ================= FOOTER ICONS ================= */}
+      <div className="checkout-footer">
+
+        <div className="footer-item">
+          <svg width="42" height="42" viewBox="0 0 24 24">
+            <rect x="5" y="10" width="14" height="9" stroke="#f2a100" strokeWidth="2" fill="none"/>
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#f2a100" strokeWidth="2" fill="none"/>
+          </svg>
+          <h4>Your information is Safe</h4>
+          <p>The total cost consist of tax and insurance.</p>
+        </div>
+
+        <div className="footer-item">
+          <svg width="42" height="42" viewBox="0 0 24 24">
+            <path d="M12 3l8 4v5c0 5-3 8-8 9-5-1-8-4-8-9V7l8-4z"
+              stroke="#f2a100"
+              strokeWidth="2"
+              fill="none"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </svg>
+          <h4>Secure checkout</h4>
+          <p>Safe and protected payment process.</p>
         </div>
-      </main>
+
+        <div className="footer-item">
+          <svg width="42" height="42" viewBox="0 0 24 24">
+            <path d="M3 6h18v12H3z" stroke="#f2a100" strokeWidth="2" fill="none"/>
+          </svg>
+          <h4>24/7 Support</h4>
+          <p>We are always here to help you.</p>
+        </div>
+
+      </div>
+
     </div>
   );
 }

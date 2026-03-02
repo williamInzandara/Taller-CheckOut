@@ -1,26 +1,312 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ================= GLOBAL ================= */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f4f5f9;
+}
+
+.checkout-wrapper {
+  width: 100%;
+}
+
+/* ================= HEADER ================= */
+
+.checkout-header {
+  background: linear-gradient(180deg, #162b87 0%, #1d3ac2 100%);
+  padding: 50px 60px 140px 60px;
+  color: white;
+  position: relative;
+}
+
+.checkout-content {
+  max-width: 1200px;
+  margin: -100px auto 60px auto;
+  display: flex;
+  gap: 40px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.back {
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  top: -8px;   /* esto lo sube */
+}
+
+.menu span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: white;
+  margin: 4px 0;
+}
+
+.menu {
+  position: relative;
+  top: -8px;  /* sube el icono del menú */
+}
+
+/* ================= STEPS ================= */
+
+.steps {
+  max-width: 1200px;
+  margin: 30px auto 0 auto;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px 30px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.85;
+  font-size: 14px;
+}
+
+.step.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.circle.filled {
+  background: #ffb300;
+  color: white;
+}
+
+.prev {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+/* ================= CONTENT ================= */
+
+.checkout-content {
+  max-width: 1200px;
+  margin: -100px auto 60px auto;
+  display: flex;
+  gap: 40px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* CARDS */
+
+.order-card,
+.summary-card {
+  background: white;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+}
+
+.order-card {
+  flex: 2;
+}
+
+.summary-card {
+  flex: 1;
+  height: fit-content;
+}
+
+/* ================= ORDER ITEMS ================= */
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.item-info {
+  display: flex;
+  gap: 20px;
+}
+
+.item-info img {
+  width: 75px;
+  height: 75px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.item-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+}
+
+.item-info p {
+  margin: 3px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.price {
+  text-align: right;
+}
+
+.price strong {
+  font-size: 16px;
+}
+
+.price span {
+  font-size: 12px;
+  color: #888;
+}
+
+/* DISCOUNT BOX */
+
+.discount-box {
+  background: #f0f1f6;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+  color: #444;
+  font-size: 14px;
+  margin-top: 20px;
+  box-shadow: inset 0 1px 0 #e0e0e0;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary-card h2 {
+  margin-top: 0;
+}
+
+.summary-text {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.summary-card hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 15px 0;
+}
+
+.next-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #162b87;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background: #0f1f66;
+}
+
+/* ================= DIVIDER ================= */
+
+.divider {
+  max-width: 1100px;
+  margin: 60px auto 50px auto;
+  border-top: 2px dashed #e2e2e2;
+}
+
+/* ================= FOOTER ================= */
+
+.checkout-footer {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  padding: 40px 20px 80px 20px;
+  text-align: center;
+}
+
+.footer-item {
+  max-width: 240px;
+}
+
+.footer-item h4 {
+  margin: 18px 0 10px;
+  font-weight: 600;
+}
+
+.footer-item p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .checkout-content {
+    flex-direction: column;
+    margin-top: -60px;
+  }
+
+  .checkout-footer {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .steps {
+    gap: 20px;
+  }
+
 }
